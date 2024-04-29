@@ -21,3 +21,7 @@ resource "aws_eip" "lb" {
   instance = aws_instance.testInstance.id
   vpc      = true
 }
+
+output "ec2_instance_public_id" {
+  value = aws_instance.testInstance.public_ip
+}
