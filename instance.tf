@@ -11,10 +11,23 @@ resource "aws_subnet" "public" {
   cidr_block        = element(var.subnet_cidr, count.index)
   availability_zone = element(var.azs, count.index)
   tags = {
-    Name = "Subnet-${count.index+1}"
+    Name = "Subnet-${count.index + 1}"
   }
 }
 
 resource "aws_internet_gateway" "gateway" {
   vpc_id = aws_vpc.vpc.id
+}
+
+resource "aws_route_table" "public_routing" {
+  vpc_id = aws_vpc.vpc.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.gateway.id
+  }
+}
+
+resource "aws_route_table_association" "routing_table_association" {
+  vpc_id         = aws_vpc.vpc.id
+  route_table_id = aws_route_table.public_routing.id
 }

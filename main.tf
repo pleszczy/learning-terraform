@@ -10,7 +10,7 @@ terraform {
 }
 
 provider "aws" {
-  region = var.region
-  access_key = "dupa"
-  secret_key = "dupa"
+  region     = var.region
+  access_key = "secret"
+  secret_key = "secret"
 }

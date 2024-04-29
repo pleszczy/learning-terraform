@@ -20,6 +20,10 @@ variable "azs" {
   type = list(string)
 }
 
+variable "aws_instance_azs" {
+  default = ""
+}
+
 variable "region" {
   type = string
 }
