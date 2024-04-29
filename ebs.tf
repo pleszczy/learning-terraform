@@ -9,13 +9,13 @@ resource "aws_ebs_volume" "ebs-a" {
 }
 
 resource "aws_volume_attachment" "ebs-a-attach" {
-  device_name = "ebs-a"
+  device_name = "/dev/sdb"
   instance_id = aws_instance.testInstance
   volume_id   = aws_ebs_volume.ebs-a
 }
 
 resource "aws_volume_attachment" "ebs-b-attach" {
-  device_name = "ebs-b"
+  device_name = "/dev/sdc"
   instance_id = aws_instance.testInstance
   volume_id   = aws_ebs_volume.ebs-b
 }
