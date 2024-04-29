@@ -23,5 +23,6 @@ resource "aws_eip" "lb" {
 }
 
 output "ec2_instance_public_id" {
-  value = aws_instance.testInstance.public_ip
+  value     = aws_instance.testInstance.public_ip
+  sensitive = true
 }
