@@ -1,4 +1,3 @@
-
 resource "aws_instance" "testInstance" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
@@ -20,9 +19,4 @@ resource "aws_instance" "testInstanceX4" {
 resource "aws_eip" "lb" {
   instance = aws_instance.testInstance.id
   vpc      = true
-}
-
-output "ec2_instance_public_id" {
-  value     = aws_instance.testInstance.public_ip
-  sensitive = true
 }

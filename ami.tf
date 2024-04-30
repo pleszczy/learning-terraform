@@ -13,8 +13,3 @@ data "aws_ami" "ubuntu" {
 
   owners = ["099720109477"]
 }
-
-output "ubuntu_ami_id" {
-  value     = data.aws_ami.ubuntu.id
-  sensitive = false
-}
