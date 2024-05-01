@@ -28,6 +28,13 @@ variable "region" {
   type = string
 }
 
+variable "accessKey" {
+  type = string
+}
+variable "secretKey" {
+  type = string
+}
+
 variable "instance_type" {
   type        = string
   description = "The ec2 instance type e.g. t2.micro"

@@ -1,6 +1,6 @@
 output "ec2_instance_public_id" {
-  value     = aws_instance.testInstance.public_ip
-  sensitive = true
+  value = aws_instance.testInstance.public_ip
+  #   sensitive = true
 }
 
 output "ubuntu_ami_id" {
